@@ -1,0 +1,93 @@
+<Block@MDBoxLayout>:
+    size_hint: None, None
+    distance: [dp(20)]
+    size: dp(40), dp(40) 
+    radius: [dp(10), dp(10), dp(10), dp(10)] 
+    color_outer: [0.44, 0.921, 0, 1]
+    color_inner: [0, 1, 0, 1]
+    text_color: [1, 1, 1, 1] 
+    text: ''
+    canvas:
+        Color:
+            rgba: root.color_outer
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: root.color_inner
+        RoundedRectangle:
+            size: [self.size[0]-dp(10), self.size[1]-dp(10)]
+            pos: [self.pos[0]+dp(5), self.pos[1]+dp(5)]
+            radius: self.radius
+    MDLabel:
+        text: root.text
+        halign: 'center'
+        font_size: sp(20)
+        bold: True
+        theme_text_color: 'Custom'
+        text_color: root.text_color
+
+
+<Table@MDGridLayout>:
+    cols: 4
+    size_hint: None, None
+    size: self.minimum_size 
+    padding: dp(10) 
+    spacing: dp(10)
+    trace_color: [0, 0, 0, 1]
+    trace_points: [850, 20, 950, 60]
+    inner_color: [0, 1, 0.1, 0.4]
+    outer_color: [0, 0, 0, 0.2]
+    canvas.before:
+        Color:
+            rgba: root.outer_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: root.inner_color
+        RoundedRectangle:
+            pos: [self.pos[0]+dp(5), self.pos[1]+dp(5)]
+            size: [self.size[0]-dp(10), self.size[1]-dp(10)]
+        
+    # canvas.after:
+    #     Color: 
+    #         rgba: root.trace_color
+    #     SmoothLine:
+    #         width: dp(3)
+    #         points: root.trace_points
+    Block:
+        text: 'A'
+    Block:
+        text: 'R'
+    Block:
+        text: 'M'
+    Block:
+        text: 'E'
+    Block:
+        text: 'C'
+    Block:
+        text: 'E'
+    Block:
+        text: 'Q'
+    Block:
+        text: 'I'
+    Block:
+        text: 'V'
+    Block:
+        text: 'T'
+    Block:
+        text: 'J'
+    Block:
+        text: 'O'
+    Block:
+        text: 'O'
+    Block:
+        text: 'S'
+    Block:
+        text: 'S'
+    Block:
+        text: 'E'
+FloatLayout:
+    Table:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
